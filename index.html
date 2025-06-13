@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R Code Studio - R语言编程服务 | R语言数据分析 | R语言机器学习 | R语言统计计算 | R语言数据挖掘 | R语言文本分析 | R语言复杂网络分析 | R包开发 | Shiny应用开发</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="R Code Studio提供专业的R语言编程服务，包括R语言程序编程咨询服务（数据读写、数据处理、R函数编写）、R语言统计学程序编程咨询服务（线性回归、广义线性回归、面板数据回归）、R语言统计计算服务（Accept-Reject sampling、Gibbs、MCMC）、R语言数据挖掘服务（决策树、随机森林、SVM）、R语言文本分析服务（文本处理、词云制作、LDA主题模型）、R语言复杂网络分析服务（网络数据分析、igraph网络图）、R包开发服务（github、bioconductor、cran）、Shiny应用开发服务、R语言画图服务（ggplot2、d3.js）、R语言数据抓取服务（rvest、httr、RCurl、Rselenium）。团队成员均具有5年以上R语言编程经验，部分成员拥有10年以上经验。">
+    
+    <meta name="keywords" content="R语言编程,R语言数据分析,R语言机器学习,R语言统计计算,R语言数据挖掘,R语言文本分析,R语言复杂网络分析,R包开发,Shiny应用开发,ggplot2,d3.js,数据可视化,数据清洗,数据挖掘,机器学习,统计分析,计量经济学,面板数据,时间序列,文本挖掘,网络分析,readxl,openxlsx,xlsx,dplyr,tidyr,mice,线性回归,广义线性回归,glmnet,lasso,ridge,面板数据回归,计量经济学,Accept-Reject sampling,Gibbs,Metropolis-Hastings,MCMC,GA遗传算法,模拟退火算法,决策树,随机森林,SVM,朴素贝叶斯,gbm,神经网络,K-means,PCA,因子分析,关联规则,kaggle竞赛,词云制作,LDA主题模型,情感分析,igraph,网络图,ERM模型,github,bioconductor,cran,shinydashboard,rvest,httr,RCurl,Rselenium">
+    
+    <meta name="author" content="R Code Studio">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="R Code Studio - 专业的R语言编程服务提供商">
+    <meta property="og:description" content="提供R语言数据分析、机器学习、统计计算、数据挖掘、文本分析、复杂网络分析、R包开发、Shiny应用开发等专业服务">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://rcoding.mysxl.cn">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Chinese">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://rcoding.mysxl.cn">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "R Code Studio",
+        "description": "专业的R语言编程服务提供商，提供全面的R语言相关服务",
+        "url": "http://rcoding.mysxl.cn",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+86-3265580161",
+            "contactType": "customer service",
+            "availableLanguage": ["Chinese", "English"]
+        },
+        "offers": [
+            {
+                "@type": "Service",
+                "name": "R语言程序编程咨询服务",
+                "description": "与R语言有关的编程服务或者调试，包括数据读写，例如使用readxl, openxlsx, xlsx包等进行excel文件读取，自动化excel输入输出; 数据处理，例如使用dplyr, tidyr等进行数据清洗整合或者mice包进行数据缺失值修补等；R函数编写等。"
+            },
+            {
+                "@type": "Service",
+                "name": "R语言统计学程序编程咨询服务",
+                "description": "目前很多统计学使用R语言进行教学，本服务可辅导硕士及硕士以下水平的统计学R语言的相关程序代码问题（博士同级水平需要具体咨询讨论)，例如线性回归lm，广义线性回归glm, glmnet,lasso, ridge, 面板数据回归pannel models(fixed effect, random effect),计量经济学模型以及相关的assignment, quiz, report等咨询服务。"
+            },
+            {
+                "@type": "Service",
+                "name": "R语言统计计算，算法程序代码编程咨询服务",
+                "description": "统计计算，算法程序包括 Accept-Reject sampling, Gibbs, Metropolis-Hastings，MCMC， GA遗传算法，模拟退火算法等等，以及相关的assignment, quiz, report等咨询服务。"
+            },
+            {
+                "@type": "Service",
+                "name": "R语言数据挖掘，机器学习程序代码咨询服务",
+                "description": "可以使用R进行数据挖掘，机器学习任务，包括常见的决策树CART, 随机森林random forest, SVM, 朴素贝叶斯, gbm, 神经网络， 聚类算法K-means, 主成分分析PCA, 因子分析FA，关联规则以及相关的assignment, quiz, report等咨询服务, 可进行kaggle竞赛。"
+            },
+            {
+                "@type": "Service",
+                "name": "R语言文本分析咨询服务",
+                "description": "利用R进行文本分析挖掘的任务，包括文本处理，词云制作，LDA主题模型，情感打分和分析sentiment scoring and analysis等等。"
+            },
+            {
+                "@type": "Service",
+                "name": "R语言复杂网络分析咨询服务",
+                "description": "利用R进行复杂网络的分析，包括处理网络数据，igraph画网络图，计算网络相关的一些指标以及构建网络随机指数ERM型等等。"
+            },
+            {
+                "@type": "Service",
+                "name": "R包咨询编程服务",
+                "description": "提供咨询如何编程R语言包 R package的服务，具体根据希望发布到哪里而定，例如github, bioconductor还是cran等等。"
+            },
+            {
+                "@type": "Service",
+                "name": "R语言构建Shiny服务",
+                "description": "利用R语言构建各种所需要的shiny,shinydashboard应用，具体界面和功能需求讨论决定。"
+            },
+            {
+                "@type": "Service",
+                "name": "R语言画图服务",
+                "description": "利用R语言ggplot2,d3.js等工具进行画图，画出理想中需要的各种图形。"
+            },
+            {
+                "@type": "Service",
+                "name": "R语言数据抓取服务",
+                "description": "利用R语言rvest, httr，RCurl等包进行数据抓取收集，提供异步加载的数据（利用视频评论就属于异步加载,需要更高级的工具如Rselenium，具体需求可具体讨论。"
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .header {
+            background: #fff;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .logo {
+            height: 50px;
+        }
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        .nav-links a:hover {
+            color: #0056b3;
+        }
+        .banner {
+            background: url('images/banner.jpg') center/cover no-repeat;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            margin-top: 80px;
+            overflow: hidden;
+        }
+        .banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+        }
+        .banner-content {
+            z-index: 1;
+            padding: 2rem;
+            background: rgba(0,0,0,0.5);
+            border-radius: 10px;
+        }
+        .banner h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .banner h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .banner p {
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .contact-scroll {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.2rem;
+            white-space: nowrap;
+            animation: scrollText 20s linear infinite;
+        }
+        @keyframes scrollText {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        .main-content {
+            padding: 2rem;
+        }
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+            scroll-margin-top: 100px;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #007bff;
+        }
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .service-item {
+            text-align: center;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .service-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+        .service-item h3 {
+            margin: 1rem 0;
+            color: #007bff;
+        }
+        .contact-info {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo-container">
+                <img src="images/logo.jpg" alt="R Code Studio Logo" class="logo">
+                <span class="logo-text">R Code Studio</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home">首页</a>
+                <a href="#team">团队介绍</a>
+                <a href="#services">服务范围</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="banner" id="home">
+        <div class="banner-content">
+            <h1>R Code Studio</h1>
+            <h2>Advanced R Programming</h2>
+            <p>一家专门做R语言的网站</p>
+        </div>
+        <div class="contact-scroll">
+            加QQ 3265580161，微信 rwanshiwu 可具体咨询，工作时间：北京时间早8点 - 凌晨2点左右
+        </div>
+    </section>
+
+    <main class="main-content">
+        <section id="team" class="section">
+            <div class="section-title">
+                <h2>- 关于我们 -</h2>
+            </div>
+            <div class="about-content">
+                <p>R code studio 是一个由国内名牌高校的计算机，统计学专业的硕士博士研究生组成的咨询团队，咨询团队成员都是至少拥有5年以上（部分10年以上）R语言编程经验的计算机大神或者统计学高手组成，且个别核心团队成员是编写R package发布在官网Cran上供全球R语言使用者的专家（可直接install.packages安装到的R包)， 团队目前主要擅长计算机CS和统计学statistic相关的R编程任务，具体包括涉及到数据分析data analysis, 数据挖掘data mining, 机器学习machine learning, 统计计算 statistical computing 等各类R assignment, R project, R report, R quiz咨询服务，另外可提供计算机以及统计学，R，数据挖掘和机器学习相关的在线一对一辅导。</p>
+                <div class="contact-info">
+                    <p>加QQ 3265580161，微信 rwanshiwu 可具体咨询，目前我们的工作时间是中国北京时间周一到周日的早上8点到凌晨2点前。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div class="section-title">
+                <h2>- 服务范围 -</h2>
+                <p>工作QQ 3265580161，微信 rwanshiwu，工作时间：北京时间早8点 - 凌晨2点，如有疑问可在工作时间内加QQ具体讨论或发送具体需求到3265580161@qq.com邮箱，注：所有服务都可提供一对一指导和教学。</p>
+            </div>
+            <div class="service-grid">
+                <div class="service-item">
+                    <img src="images/R语言程序编程咨询服务.jpg" alt="R语言程序编程咨询服务">
+                    <h3>R语言程序编程咨询服务</h3>
+                    <p>与R语言有关的编程服务或者调试，包括数据读写，例如使用readxl, openxlsx, xlsx包等进行excel文件读取，自动化excel输入输出; 数据处理，例如使用dplyr, tidyr等进行数据清洗整合或者mice包进行数据缺失值修补等；R函数编写等。</p>
+                </div>
+                <div class="service-item">
+                    <img src="images/R语言统计学程序编程咨询服务.jpg" alt="R语言统计学程序编程咨询服务">
+                    <h3>R语言统计学程序编程咨询服务</h3>
+                    <p>目前很多统计学使用R语言进行教学，本服务可辅导硕士及硕士以下水平的统计学R语言的相关程序代码问题（博士同级水平需要具体咨询讨论)，例如线性回归lm，广义线性回归glm, glmnet,lasso, ridge, 面板数据回归pannel models(fixed effect, random effect),计量经济学模型以及相关的assignment, quiz, report等咨询服务。</p>
+                </div>
+                <div class="service-item">
+                    <img src="images/R语言统计计算.jpg" alt="R语言统计计算">
+                    <h3>R语言统计计算，算法程序代码编程咨询服务</h3>
+                    <p>统计计算，算法程序包括 Accept-Reject sampling, Gibbs, Metropolis-Hastings，MCMC， GA遗传算法，模拟退火算法等等，以及相关的assignment, quiz, report等咨询服务。</p>
+                </div>
+                <div class="service-item">
+                    <img src="images/R语言数据挖掘.jpg" alt="R语言数据挖掘">
+                    <h3>R语言数据挖掘，机器学习程序代码咨询服务</h3>
+                    <p>可以使用R进行数据挖掘，机器学习任务，包括常见的决策树CART, 随机森林random forest, SVM, 朴素贝叶斯, gbm, 神经网络， 聚类算法K-means, 主成分分析PCA, 因子分析FA，关联规则以及相关的assignment, quiz, report等咨询服务, 可进行kaggle竞赛。</p>
+                </div>
+                <div class="service-item">
+                    <img src="images/R语言文本分析咨询服务.jpg" alt="R语言文本分析咨询服务">
+                    <h3>R语言文本分析咨询服务</h3>
+                    <p>利用R进行文本分析挖掘的任务，包括文本处理，词云制作，LDA主题模型，情感打分和分析sentiment scoring and analysis等等。</p>
+                </div>
+                <div class="service-item">
+                    <img src="images/R语言复杂网络分析.jpg" alt="R语言复杂网络分析">
+                    <h3>R语言复杂网络分析咨询服务</h3>
+                    <p>利用R进行复杂网络的分析，包括处理网络数据，igraph画网络图，计算网络相关的一些指标以及构建网络随机指数ERM型等等。</p>
+                </div>
+                <div class="service-item">
+                    <img src="images/R包咨询编程服务.jpg" alt="R包咨询编程服务">
+                    <h3>R包咨询编程服务</h3>
+                    <p>提供咨询如何编程R语言包 R package的服务，具体根据希望发布到哪里而定，例如github, bioconductor还是cran等等。</p>
+                </div>
+                <div class="service-item">
+                    <img src="images/R语言构建Shiny服务.jpg" alt="R语言构建Shiny服务">
+                    <h3>R语言构建Shiny服务</h3>
+                    <p>利用R语言构建各种所需要的shiny,shinydashboard应用，具体界面和功能需求讨论决定。</p>
+                </div>
+                <div class="service-item">
+                    <img src="images/R语言画图服务.jpg" alt="R语言画图服务">
+                    <h3>R语言画图服务</h3>
+                    <p>利用R语言ggplot2,d3.js等工具进行画图，画出理想中需要的各种图形。</p>
+                </div>
+                <div class="service-item">
+                    <img src="images/R语言数据抓取服务.jpg" alt="R语言数据抓取服务">
+                    <h3>R语言数据抓取服务</h3>
+                    <p>利用R语言rvest, httr，RCurl等包进行数据抓取收集，提供异步加载的数据（利用视频评论就属于异步加载,需要更高级的工具如Rselenium，具体需求可具体讨论。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>R Code Studio © Copyright 2024</p>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
